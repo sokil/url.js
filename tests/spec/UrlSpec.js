@@ -64,4 +64,24 @@ describe("Url suite", function() {
             Url.stringToObject('param=1%2B1')
         );
     });
+
+    it("merge query string to url with no query", function() {
+        expect(
+            "http://github.com/sokil?param=value"
+        ).toEqual(
+            Url('http://github.com/sokil')
+                .merge({"param": "value"})
+                .toString()
+        );
+    });
+
+    it("merge query string to url with query", function() {
+        expect(
+            "http://github.com/sokil?param1=value1&param2=value2"
+        ).toEqual(
+            Url('http://github.com/sokil?param1=value1')
+                .merge({"param2": "value2"})
+                .toString()
+        );
+    });
 });
