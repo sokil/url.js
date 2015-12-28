@@ -36,7 +36,7 @@
         
         _queryStringToArray: function(queryString) {
             queryString = decodeURIComponent(queryString.replace(/\+/g, '%20'));
-            
+
             var queryArray = {},
                 queryPairs = queryString.split('&'),
                 numericIndexCounter = {};
@@ -45,21 +45,21 @@
                 var queryPair = queryPairs[i].split('='),
                     queryPairKey = queryPair[0],
                     queryPairValue = queryPair[1];
-            
+
                 var arrayKey = queryPairKey.match(/([^=&]+?)\[(.*)\]/);
-                
+
                 // param[]=value
                 if(arrayKey) {
                     var arrayKeyName = arrayKey[1],
                         arrayKeyIndexList = arrayKey[2].split("][");
-                
+
                     if(!queryArray[arrayKeyName]) {
                         queryArray[arrayKeyName] = {};
                         numericIndexCounter[arrayKeyName] = {};
                     }
-                    
+
                     var pointer = queryArray[arrayKeyName];
-                
+
                     for(var j = 0; j < arrayKeyIndexList.length; j++) {
                         // get index
                         var arrayKeyIndex = arrayKeyIndexList[j];
@@ -73,7 +73,7 @@
                                 arrayKeyIndex = 0;
                             }
                         }
-                        
+
                         // set pointer
                         if(j === arrayKeyIndexList.length - 1) {
                             pointer[arrayKeyIndex] = queryPairValue;
@@ -90,7 +90,7 @@
                     queryArray[queryPairKey] = queryPairValue;
                 }
             }
- 
+
             return queryArray;
         },
         
