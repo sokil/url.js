@@ -2,6 +2,8 @@
 
 Library to work with urls
 
+[![Build Status](https://travis-ci.org/sokil/url.js.svg?branch=master)](https://travis-ci.org/sokil/url.js)
+
 ## Tests
 
 You must install `jasmine`:
