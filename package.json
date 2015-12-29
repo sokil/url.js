@@ -11,5 +11,5 @@
     },
     "scripts": {
       "test": "JASMINE_CONFIG_PATH=./tests/spec/support/jasmine.json jasmine ./tests/spec/*.js"
-    },
+    }
 }
