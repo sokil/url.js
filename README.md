@@ -1,4 +1,4 @@
-# Url.js
+# Url Mutator
 
 Library to work with urls
 
