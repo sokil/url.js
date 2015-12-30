@@ -1,0 +1,20 @@
+{
+  "name": "url.js",
+  "version": "0.0.1",
+  "authors": [
+    "Dmytro Sokil <dmytro.sokil@gmail.com>"
+  ],
+  "description": "Library to work with URLs",
+  "main": "src/Url.js",
+  "keywords": [
+    "url",
+    "query"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/sokil/url.js",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "tests"
+  ]
+}
