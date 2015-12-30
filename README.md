@@ -6,7 +6,7 @@ Library to work with urls
 
 ## Installation
 
-### Bower
+#### Bower
 ```
 bower install urlib
 ```
