@@ -8,7 +8,12 @@ Library to work with urls
 
 #### Bower
 ```
-bower install urlib
+bower install url-mutator
+```
+
+#### Npm
+```
+npm install url-mutator
 ```
 
 ## Tests

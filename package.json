@@ -1,7 +1,7 @@
 {
-    "name": "url.js",
-    "version": "0.0.1",
-    "description": "url.js",
+    "name": "url-mutator",
+    "version": "1.0.1",
+    "description": "Library to work with URLs",
     "main": "src/Url.js",
     "author": "Dmytro Sokil <dmytro.sokil@gmail.com>",
     "license": "MIT",
