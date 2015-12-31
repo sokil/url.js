@@ -1,11 +1,11 @@
-describe("Url suite", function() {
-    var Url = require('../../src/Url.js');
+describe("Unserialize suite", function() {
+    var UrlMutator = require('../../src/UrlMutator.js');
 
     it("converts 'param=value' to object", function() {
         expect(
             {"param": "value"}
         ).toEqual(
-            Url.stringToObject('param=value')
+            UrlMutator.unserializeQuery('param=value')
         );
     });
 
@@ -13,7 +13,7 @@ describe("Url suite", function() {
         expect(
             {"param": {"0": "value"}}
         ).toEqual(
-            Url.stringToObject('param[]=value')
+            UrlMutator.unserializeQuery('param[]=value')
         );
     });
 
@@ -21,7 +21,7 @@ describe("Url suite", function() {
         expect(
             {"param": {"0": "value1", "1": "value2"}}
         ).toEqual(
-            Url.stringToObject('param[]=value1&param[]=value2')
+            UrlMutator.unserializeQuery('param[]=value1&param[]=value2')
         );
     });
 
@@ -29,7 +29,7 @@ describe("Url suite", function() {
         expect(
             {"param": {"key": "value"}}
         ).toEqual(
-            Url.stringToObject('param[key]=value')
+            UrlMutator.unserializeQuery('param[key]=value')
         );
     });
 
@@ -37,7 +37,7 @@ describe("Url suite", function() {
         expect(
             {"param": {"key1": "value1", "key2": "value2"}}
         ).toEqual(
-            Url.stringToObject('param[key1]=value1&param[key2]=value2')
+            UrlMutator.unserializeQuery('param[key1]=value1&param[key2]=value2')
         );
     });
 
@@ -45,7 +45,7 @@ describe("Url suite", function() {
         expect(
             {"param": "Зроблено в Україні"}
         ).toEqual(
-            Url.stringToObject('param=%D0%97%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BD%D0%BE%20%D0%B2%20%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%96')
+            UrlMutator.unserializeQuery('param=%D0%97%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BD%D0%BE%20%D0%B2%20%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%96')
         );
     });
 
@@ -53,7 +53,7 @@ describe("Url suite", function() {
         expect(
             {"param": "1 1"}
         ).toEqual(
-            Url.stringToObject('param=1+1')
+            UrlMutator.unserializeQuery('param=1+1')
         );
     });
 
@@ -61,7 +61,7 @@ describe("Url suite", function() {
         expect(
             {"param": "1+1"}
         ).toEqual(
-            Url.stringToObject('param=1%2B1')
+            UrlMutator.unserializeQuery('param=1%2B1')
         );
     });
 
@@ -69,8 +69,8 @@ describe("Url suite", function() {
         expect(
             "http://github.com/sokil?param=value"
         ).toEqual(
-            Url('http://github.com/sokil')
-                .merge({"param": "value"})
+            UrlMutator.create('http://github.com/sokil')
+                .appendQueryParams({"param": "value"})
                 .toString()
         );
     });
@@ -79,8 +79,8 @@ describe("Url suite", function() {
         expect(
             "http://github.com/sokil?param1=value1&param2=value2"
         ).toEqual(
-            Url('http://github.com/sokil?param1=value1')
-                .merge({"param2": "value2"})
+            UrlMutator.create('http://github.com/sokil?param1=value1')
+                .appendQueryParams({"param2": "value2"})
                 .toString()
         );
     });
